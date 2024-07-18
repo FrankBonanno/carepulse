@@ -20,3 +20,13 @@ export const createUser = async (user: CreateUserParams) => {
     console.error('An error occurred while creating a new user:', error.message);
   }
 };
+
+export const getUser = async (userID: string) => {
+  try {
+    const user = await users.get(userID);
+
+    return parseStringify(user);
+  } catch (error) {
+    console.log(error);
+  }
+};
